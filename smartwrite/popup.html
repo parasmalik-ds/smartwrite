@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <style>
+      /* Add your custom CSS here */
+      button {
+        color: white;
+        background-color: rgb(0, 62, 112);
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      h1,p {
+        text-align: center;
+      }
+
+      /* Reduce the size of the GIF */
+      img {
+        width: 300;
+        height: 300;
+      }
+    </style>
+    <script>
+      // Add your JavaScript here
+      document.getElementById("myButton").addEventListener("click", function() {
+        alert("You clicked the button!");
+      });
+    </script>
+    <title>Smart Write</title>
+  </head>
+  <body>
+    <div class="popup">
+      <h1>Smart Write</h1>
+      <p>Welcome to the Gmail extension!</p>
+      <img src="./assets/email.gif" alt="Wrte you mail Smartly">
+      <!-- Add your HTML content here -->
+      <a href="#">
+        <button id="myButton">Click me!</button>
+      </a>
+    </div>
+  </body>
+</html>
