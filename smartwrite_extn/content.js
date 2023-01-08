@@ -1,5 +1,4 @@
 function loadExtension() {
-
     // Find the button with id resp_btn if found it will return from the fucntion
     const button1 = document.querySelector('button[id="resp_btn"]');
     if (button1 && button1.innerText === "Response") {
@@ -7,20 +6,23 @@ function loadExtension() {
         return;
       }
 
-
+    var sheet = document.styleSheets[0];
+    // sheet.insertRule(".amazing-button {background: linear-gradient(to right, #0000FF, #006FFF); border: none; padding: 8px 20px; border-radius: 20px; color: white; font-size: 14px;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); transition: all 0.3s ease;}", sheet.cssRules.length);
+    sheet.insertRule(".amazing-button {background: linear-gradient(to right, #0000FF, #6600FF, #9900FF, #CC00FF, #FF00FF); border: none; padding: 8px 20px; border-radius: 20px; color: white; font-size: 14px;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); transition: all 0.3s ease;}", sheet.cssRules.length);
+    sheet.insertRule(".amazing-button:hover { background: linear-gradient(to left,  #0000FF, #6600FF, #9900FF, #CC00FF, #FF00FF); box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); transform: scale(1.02);}", sheet.cssRules.length);
     //create a button with with name Response and id resp_btn
     var resp_btn = document.createElement("button");
     resp_btn.innerHTML = "Response";
     resp_btn.id = "resp_btn";
+    resp_btn.classList.add("amazing-button");
 
       
 
     // Find the send button add above button as a child to parent node
     var sendBtn = document.querySelector("div[role='button'][aria-label='Send ‪(Ctrl-Enter)‬']");
     if (sendBtn){
-    sendBtn.parentNode.appendChild(resp_btn);
-    }
-
+        sendBtn.parentNode.appendChild(resp_btn);
+        }
     async function myFunction() {
         var spans = document.querySelectorAll('span');
         for (var i = 0; i < spans.length; i++) {
@@ -52,15 +54,10 @@ function loadExtension() {
             console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
             console.log("Unable to find element", selected_element)
             var legacyMessageId = selected_element.getAttribute('data-legacy-message-id');
-
             var sub_element = document.querySelector('h2[class="hP"][data-legacy-thread-id="'+legacyMessageId+'"]');
-
             var subject_text = sub_element.textContent;
             console.log("Subject Text", subject_text)
-
             var spans = selected_element.querySelectorAll('span');
-
-
             for (var i = 0; i < spans.length; i++) {
             var span = spans[i];
             if (span.hasAttribute('email') && span.hasAttribute('name')) {
@@ -83,7 +80,7 @@ function loadExtension() {
         console.log("Selected Element", type)
         console.log("Message Text:", msg_text)
 
-        const apiUrl = "https://7574-122-160-141-52.in.ngrok.io";
+        const apiUrl = "https://a133-103-158-91-11.in.ngrok.io";
         console.log("DATA: ", ddata)
         await fetch(apiUrl, {
             method: "POST",
