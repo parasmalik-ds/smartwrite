@@ -1,7 +1,7 @@
 import openai
 
 def get_response(conversation):
-    openai.api_key = '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'
+    openai.api_key = 'sk-'
     print( conversation)
     response = openai.Completion.create(
         model="text-davinci-003",
